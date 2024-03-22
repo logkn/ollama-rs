@@ -149,6 +149,10 @@ impl ChatMessage {
         Self::new(MessageRole::System, content)
     }
 
+    pub fn tool(content: String) -> Self {
+        Self::new(MessageRole::Tool, content)
+    }
+
     pub fn with_images(mut self, images: Vec<Image>) -> Self {
         self.images = Some(images);
         self
@@ -172,4 +176,6 @@ pub enum MessageRole {
     Assistant,
     #[serde(rename = "system")]
     System,
+    #[serde(rename = "tool")]
+    Tool,
 }
